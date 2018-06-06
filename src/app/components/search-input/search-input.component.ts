@@ -23,7 +23,7 @@ export class SearchInputComponent implements OnInit {
     Observable.fromEvent(this.input.nativeElement, 'keyup') // Create an observable from input keyup events
       .map((e: any) => e.target.value) // mapping the raw value to the actual user input
       .filter((text: string) => text.length > 1) // do nothing if user enters nothing
-      .debounceTime(1000) // only check the events every 400ms
+      .debounceTime(400) // only check the events every 400ms
       .do((query: string) => this.search.emit(query))// make a search with the query ))
       .switch() // if there is another user input, cancel previous stream
       .subscribe();
