@@ -1,0 +1,2 @@
+<app-search-input (search)="onSearch($event)"></app-search-input>
+<app-search-results (select)="onSelect($event)" [results]="results$ | async" [loading]="loading$ | async"></app-search-results>
