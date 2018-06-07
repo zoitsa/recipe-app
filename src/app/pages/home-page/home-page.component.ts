@@ -25,18 +25,13 @@ export class HomePageComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.results$.map(recipes => {
-      console.log(recipes);
-    });
   }
 
   onSearch(query) {
-    console.log(query);
     this.store.dispatch(new Get(query));
   }
 
   onSelect(uri) {
-    console.log(uri);
     this.store.dispatch(new Select(uri));
   }
 

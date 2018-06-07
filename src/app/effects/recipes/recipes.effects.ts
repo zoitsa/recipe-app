@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
 import { State } from '../../reducers';
@@ -45,14 +46,13 @@ export class RecipesEffects {
     private actions$: Actions,
     private api: ApiService,
     private store$: Store<State>,
+    private router: Router,
   ) {}
 
   @Effect()
   getAll$: Observable<Action> = this.actions$.pipe(
     ofType<Get>(RecipesActionTypes.GET),
     switchMap((action) => {
-      console.log(action);
-      console.log(action.payload);
       return this.api.searchRecipes(action.payload)
         .pipe(
           map((res: object) => new GetComplete(res)),
@@ -65,13 +65,11 @@ export class RecipesEffects {
   getSelect$: Observable<Action> = this.actions$.pipe(
     ofType<Get>(RecipesActionTypes.SELECT),
     switchMap((action) => {
-      console.log(action);
-      console.log(action.payload);
-      const encodedUri = encodeURI(action.payload);
-      console.log(encodedUri);
-      return this.api.selectRecipe(encodedUri)
+      const uri = action.payload;
+      return this.api.selectRecipe(uri)
         .pipe(
           map((res: object) => new SelectComplete(res)),
+          tap(() => this.router.navigate(['../recipe-detail', uri])),
           catchError(errorHandler(SelectError))
         );
     }),

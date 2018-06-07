@@ -34,6 +34,8 @@ import {
 import { SearchInputComponent } from './components/search-input/search-input.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { RecipeDetailPageComponent } from './pages/recipe-detail-page/recipe-detail-page.component';
+import { RecipeDetailComponent } from './components/recipe-detail/recipe-detail.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     SearchInputComponent,
     SearchResultsComponent,
     HomePageComponent,
+    RecipeDetailPageComponent,
+    RecipeDetailComponent,
   ],
   imports: [
     BrowserModule,

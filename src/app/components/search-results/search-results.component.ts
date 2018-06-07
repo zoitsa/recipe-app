@@ -16,7 +16,6 @@ export class SearchResultsComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    // console.log(this.results);
 
   }
 
@@ -27,7 +26,6 @@ export class SearchResultsComponent implements OnInit, OnChanges {
   ngOnChanges(changes) {
     if (changes.results) {
       this.recipeResults = changes.results.currentValue.hits;
-      console.log(this.recipeResults);
     }
 
   }

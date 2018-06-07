@@ -28,32 +28,9 @@ export const resultsLoading = createSelector(
   fromRecipes.loading
 );
 
-// export const selectProjectState = (state: State) => state.recipes;
-
-// export const selectRecipeEntities = createSelector(
-//   selectRecipesState,
-//   fromRecipes.selectRecipeEntities
-// );
-
-// export const selectAllrecipes = createSelector(
-//   selectRecipesState,
-//   fromRecipes.selectAllRecipes
-// );
-
-// export const selectrecipesIds = createSelector(
-//   selectRecipesState,
-//   fromRecipes.selectRecipeIds
-// );
-
-// export const selectCurrentrecipesId = createSelector(
-//   selectRecipesState,
-//   fromRecipes.getSelectedRecipeId
-// );
-
-// export const selectCurrentrecipes = createSelector(
-//   selectRecipeEntities,
-//   selectCurrentrecipesId,
-//   (recipesEntities, recipesId) => recipesEntities[recipesId]
-// );
+export const selectSingleRecipe = createSelector(
+  selectRecipesState,
+  fromRecipes.selectedRecipe
+);
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];

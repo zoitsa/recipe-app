@@ -32,7 +32,6 @@ export function reducer(state = initialState, action: RecipesActions): State {
       };
 
       case RecipesActionTypes.GET_COMPLETE:
-      console.log(action.payload);
       return {
         ...state,
           loading: false,
@@ -48,26 +47,18 @@ export function reducer(state = initialState, action: RecipesActions): State {
       };
 
       case RecipesActionTypes.SELECT_COMPLETE:
-      console.log(action.payload);
       return {
         ...state,
           loading: false,
-          selectedRecipe: action.payload
+          selectedRecipe: action.payload[0]
       };
-
-
 
       default:
         return state;
     }
   }
 
-  // export const {
-  //   selectEntities: selectRecipeEntities,
-  //   selectAll: selectAllRecipes,
-  //   selectIds: selectRecipeIds,
-  // } = adapter.getSelectors();
 
 export const results = (state: State) => state.results;
 export const loading = (state: State) => state.loading;
-// export const getSelectedRecipeId = (state: State) => state.selectedId;
+export const selectedRecipe = (state: State) => state.selectedRecipe;
