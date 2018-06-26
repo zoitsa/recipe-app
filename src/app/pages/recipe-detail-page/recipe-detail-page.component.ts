@@ -18,7 +18,7 @@ export class RecipeDetailPageComponent implements OnInit {
   constructor(
     private store: Store<fromRoot.State>
   ) {
-    this.selectedRecipe$ = store.select(fromRoot.selectSingleRecipe);
+    // this.selectedRecipe$ = store.select(fromRoot.selectSingleRecipe);
    }
 
   ngOnInit() {

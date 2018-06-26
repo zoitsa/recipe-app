@@ -9,6 +9,7 @@ export class SearchResultsComponent implements OnInit, OnChanges {
   @Input() loading;
   @Output() select: EventEmitter<any> = new EventEmitter();
   recipeResults = [];
+  caloriesPerServing;
 
   constructor(
   ) {
@@ -24,8 +25,10 @@ export class SearchResultsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes) {
+
     if (changes.results) {
-      this.recipeResults = changes.results.currentValue.hits;
+      this.recipeResults = changes.results.currentValue;
+      console.log(this.recipeResults);
     }
 
   }

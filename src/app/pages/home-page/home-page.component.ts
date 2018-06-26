@@ -20,8 +20,8 @@ export class HomePageComponent implements OnInit {
   constructor(
     private store: Store<fromRoot.State>
   ) {
-    this.results$ = store.select(fromRoot.selectRecipesResults);
-    this.loading$ = store.select(fromRoot.resultsLoading);
+    this.results$ = store.select(fromRoot.selectRecipeEntities);
+    // this.loading$ = store.select(fromRoot.resultsLoading);
    }
 
   ngOnInit() {

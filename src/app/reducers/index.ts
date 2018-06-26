@@ -16,21 +16,38 @@ export const reducers: ActionReducerMap<State> = {
   recipes: fromRecipes.reducer,
 };
 
-export const selectRecipesState = (state: State) => state.recipes;
+export const selectRecipeState = (state: State) => state.recipes;
 
-export const selectRecipesResults = createSelector(
-  selectRecipesState,
-  fromRecipes.results
+export const selectRecipeEntities = createSelector(
+  selectRecipeState,
+  fromRecipes.selectRecipeEntities
 );
 
-export const resultsLoading = createSelector(
-  selectRecipesState,
-  fromRecipes.loading
+export const selectAllArticles = createSelector(
+  selectRecipeState,
+  fromRecipes.selectAllRecipes
 );
 
-export const selectSingleRecipe = createSelector(
-  selectRecipesState,
-  fromRecipes.selectedRecipe
+export const selectRecipeIds = createSelector(
+  selectRecipeState,
+  fromRecipes.selectRecipeIds
 );
+
+export const selectCurrentRecipeId = createSelector(
+  selectRecipeState,
+  fromRecipes.getSelectedRecipeId
+);
+
+export const selectCurrentRecipe = createSelector(
+  selectRecipeEntities,
+  selectCurrentRecipeId,
+  (RecipeEntities, RecipeId) => RecipeEntities[RecipeId]
+);
+
+// -----
+// export const resultsLoading = createSelector(
+//   selectRecipesState,
+//   fromRecipes.loading
+// );
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
