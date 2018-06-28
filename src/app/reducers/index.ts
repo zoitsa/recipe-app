@@ -23,9 +23,9 @@ export const selectRecipeEntities = createSelector(
   fromRecipes.selectRecipeEntities
 );
 
-export const selectAllArticles = createSelector(
+export const selectAllRecipes = createSelector(
   selectRecipeState,
-  fromRecipes.selectAllRecipes
+  fromRecipes.getRecipes
 );
 
 export const selectRecipeIds = createSelector(

@@ -12,25 +12,16 @@ export class SearchResultsComponent implements OnInit, OnChanges {
   caloriesPerServing;
 
   constructor(
-  ) {
+  ) {}
 
-  }
-
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   selectRecipe(uri) {
     this.select.emit(uri);
   }
 
-  ngOnChanges(changes) {
-
-    if (changes.results) {
-      this.recipeResults = changes.results.currentValue;
-      console.log(this.recipeResults);
-    }
-
+  ngOnChanges() {
+    this.recipeResults = this.results;
   }
 
 }

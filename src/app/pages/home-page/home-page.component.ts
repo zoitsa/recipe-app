@@ -20,7 +20,7 @@ export class HomePageComponent implements OnInit {
   constructor(
     private store: Store<fromRoot.State>
   ) {
-    this.results$ = store.select(fromRoot.selectRecipeEntities);
+    this.results$ = store.select(fromRoot.selectAllRecipes);
     // this.loading$ = store.select(fromRoot.resultsLoading);
    }
 
