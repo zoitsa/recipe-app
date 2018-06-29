@@ -13,12 +13,12 @@ import { RecipesActions, RecipesActionTypes, Get, Select } from '../../actions/r
   styleUrls: ['./recipe-detail-page.component.css']
 })
 export class RecipeDetailPageComponent implements OnInit {
-  selectedRecipe$;
+  selectedRecipe$: Observable<any>;
 
   constructor(
     private store: Store<fromRoot.State>
   ) {
-    // this.selectedRecipe$ = store.select(fromRoot.selectSingleRecipe);
+    this.selectedRecipe$ = store.select(fromRoot.selectCurrentRecipe);
    }
 
   ngOnInit() {

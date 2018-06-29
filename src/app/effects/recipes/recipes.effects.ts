@@ -11,7 +11,7 @@ import {
   GetComplete,
   GetError,
   Select,
-  SelectComplete,
+  // SelectComplete,
   SelectError,
   } from '../../actions/recipes.actions';
 
@@ -61,18 +61,18 @@ export class RecipesEffects {
     }),
   );
 
-  @Effect()
-  getSelect$: Observable<Action> = this.actions$.pipe(
-    ofType<Get>(RecipesActionTypes.SELECT),
-    switchMap((action) => {
-      const uri = action.payload;
-      return this.api.selectRecipe(uri)
-        .pipe(
-          map((res: object) => new SelectComplete(res)),
-          tap(() => this.router.navigate(['../recipe-detail', uri])),
-          catchError(errorHandler(SelectError))
-        );
-    }),
-  );
+  // @Effect()
+  // getSelect$: Observable<Action> = this.actions$.pipe(
+  //   ofType<Get>(RecipesActionTypes.SELECT),
+  //   switchMap((action) => {
+  //     const uri = action.payload;
+  //     return this.api.selectRecipe(uri)
+  //       .pipe(
+  //         map((res: object) => new SelectComplete(res)),
+  //         tap(() => this.router.navigate(['../recipe-detail', uri])),
+  //         catchError(errorHandler(SelectError))
+  //       );
+  //   }),
+  // );
 
 } // end Recipes Effects

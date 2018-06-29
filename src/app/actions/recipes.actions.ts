@@ -5,7 +5,7 @@ export enum RecipesActionTypes {
     GET_COMPLETE = '[Recipes] GET_COMPLETE',
     GET_ERROR = '[Recipes] GET_ERROR',
     SELECT = '[Recipes] SELECT',
-    SELECT_COMPLETE = '[Recipes] SELECT_COMPLETE',
+    // SELECT_COMPLETE = '[Recipes] SELECT_COMPLETE',
     SELECT_ERROR = '[Recipes] SELECT_ERROR'
   }
 
@@ -33,11 +33,11 @@ export enum RecipesActionTypes {
     constructor(public payload: string) {}
   }
 
-  export class SelectComplete implements Action {
-    readonly type = RecipesActionTypes.SELECT_COMPLETE;
+  // export class SelectComplete implements Action {
+  //   readonly type = RecipesActionTypes.SELECT_COMPLETE;
 
-    constructor(public payload: any) {}
-  }
+  //   constructor(public payload: any) {}
+  // }
 
   export class SelectError implements Action {
     readonly type = RecipesActionTypes.SELECT_ERROR;
@@ -51,6 +51,6 @@ export type RecipesActions
 | GetComplete
 | GetError
 | Select
-| SelectComplete
+// | SelectComplete
 | SelectError;
 

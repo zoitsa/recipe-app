@@ -1,6 +1,6 @@
 <div *ngIf="recipe">
-    <h1>{{recipe.label}}</h1>
-    <div *ngFor="let ingredient of recipe.ingredients">
+    <h1>{{recipe.recipe.label}}</h1>
+    <div *ngFor="let ingredient of recipe.recipe.ingredients">
       <p>{{ingredient.text}}</p>
     </div>
 </div>

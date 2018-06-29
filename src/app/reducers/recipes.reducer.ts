@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
-import { RecipesActions, RecipesActionTypes, Get, Select, SelectComplete } from '../actions/recipes.actions';
+import { RecipesActions, RecipesActionTypes, Get, Select, } from '../actions/recipes.actions';
 
 export interface State extends EntityState<any> {
     loading: boolean;
@@ -16,7 +16,7 @@ export const adapter: EntityAdapter<any> = createEntityAdapter<any>({
 export const initialState: State = adapter.getInitialState ({
     loading: false,
     searchTerms: '',
-    selectedId: 'null',
+    selectedId: '',
     results: [],
     // uri: ''
 });
@@ -44,7 +44,6 @@ export function reducer(state = initialState, action: RecipesActions): State {
         ...state,
         loading: true,
         selectedId: action.payload
-
       };
 
       // case RecipesActionTypes.SELECT_COMPLETE:

@@ -7,6 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angu
 export class SearchResultsComponent implements OnInit, OnChanges {
   @Input() results;
   @Input() loading;
+  @Input() recipe;
   @Output() select: EventEmitter<any> = new EventEmitter();
   recipeResults = [];
   caloriesPerServing;
@@ -14,7 +15,9 @@ export class SearchResultsComponent implements OnInit, OnChanges {
   constructor(
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.recipe);
+  }
 
   selectRecipe(uri) {
     this.select.emit(uri);

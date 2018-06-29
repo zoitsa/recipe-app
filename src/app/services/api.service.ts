@@ -21,12 +21,12 @@ export class ApiService {
     return this.http.get(url);
   }
 
-  selectRecipe(uri) {
-    const encoded = encodeURIComponent(uri);
-    const url = `https://api.edamam.com/search?app_id=${this.API_ID}&app_key=${this.APP_KEY}&r=${encoded}`;
-    const params = '';
-    return this.http.get(url);
-  }
+  // selectRecipe(uri) {
+  //   const encoded = encodeURIComponent(uri);
+  //   const url = `https://api.edamam.com/search?app_id=${this.API_ID}&app_key=${this.APP_KEY}&r=${encoded}`;
+  //   const params = '';
+  //   return this.http.get(url);
+  // }
 
 }
 
